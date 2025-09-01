@@ -1,0 +1,63 @@
+/* print.css */
+
+@media print {
+    /* Hide everything except the details view */
+    body * {
+        visibility: hidden;
+    }
+
+    #solicitud-detalles-view, #solicitud-detalles-view * {
+        visibility: visible;
+    }
+
+    #solicitud-detalles-view {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+
+    /* Hide buttons in the details view */
+    .details-header .btn-back, .details-header .details-actions, .btn-view-photos {
+        display: none !important;
+    }
+
+    /* Add logo to the header */
+    .details-header::before {
+        content: '';
+        display: block;
+        background-image: url('https://lh3.googleusercontent.com/d/15J6Aj6ZwkVrmDfs6uyVk-oG0Mqr-i9Jn=w2048?name=inka%20corp%20normal.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 50px;
+        width: 150px;
+        margin-bottom: 1rem;
+    }
+
+    /* General styles for A4 */
+    @page {
+        size: A4;
+        margin: 2cm;
+    }
+
+    body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .details-container {
+        max-width: 100% !important;
+        box-shadow: none;
+        border: none;
+    }
+
+    .detail-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+
+    .details-header {
+        background-color: var(--primary-color) !important;
+    }
+}

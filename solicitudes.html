@@ -1,0 +1,78 @@
+<!-- Vista de Solicitudes -->
+<section id="solicitudes-view" class="hidden">
+    <div class="container">
+        <h2>Solicitudes de Crédito</h2>
+        <div id="solicitudes-table-container">
+            <!-- La tabla se generará aquí con JavaScript -->
+            <p>Cargando solicitudes...</p>
+        </div>
+    </div>
+</section>
+
+<!-- Modales para Solicitudes -->
+<!-- Modal de Edición de Solicitud -->
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Editar Solicitud</h3>
+            <span class="modal-close" data-modal="edit-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form id="edit-solicitud-form">
+                <input type="hidden" id="edit-solicitud-id">
+                
+                <div class="form-group">
+                    <label for="edit-nombre">Nombre del Socio:</label>
+                    <input type="text" id="edit-nombre" name="nombresocio" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-cedula">Cédula:</label>
+                    <input type="text" id="edit-cedula" name="cedulasocio" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-monto">Monto:</label>
+                    <input type="number" id="edit-monto" name="monto" step="0.01" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-estado">Estado:</label>
+                    <select id="edit-estado" name="estado" required>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Aprobado">Aprobado</option>
+                        <option value="Rechazado">Rechazado</option>
+                        <option value="En Revisión">En Revisión</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-modal="edit-modal">Cancelar</button>
+            <button type="submit" form="edit-solicitud-form" class="btn btn-primary">Guardar Cambios</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmación de Eliminación -->
+<div id="delete-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Confirmar Eliminación</h3>
+            <span class="modal-close" data-modal="delete-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro que desea eliminar esta solicitud?</p>
+            <div class="delete-info">
+                <p><strong>ID:</strong> <span id="delete-solicitud-id"></span></p>
+                <p><strong>Socio:</strong> <span id="delete-solicitud-nombre"></span></p>
+                <p><strong>Monto:</strong> <span id="delete-solicitud-monto"></span></p>
+            </div>
+            <p class="warning-text">Esta acción no se puede deshacer.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-modal="delete-modal">Cancelar</button>
+            <button type="button" id="confirm-delete-btn" class="btn btn-danger">Eliminar Solicitud</button>
+        </div>
+    </div>
+</div>
